@@ -1,0 +1,118 @@
+<html>
+
+<head>
+	<title>Random password generator</title>
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+			font-family: 'Poppins', 'sans-serif';
+			box-sizing: border-box;
+		}
+
+		body {
+			background: #002339;
+			color: #fff;
+		}
+
+		.container {
+			margin: 12%;
+			width: 90%;
+			max-width: 700px;
+		}
+
+		.display {
+			width: 100%;
+			margin-top: 50px;
+			margin-bottom: 30px;
+			background: #fff;
+			color: #333;
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			padding: 26px 20px;
+			border-radius: 5px;
+		}
+
+		.container h1 {
+			font-family: 500;
+			font-size: 45px;
+		}
+
+		.container h1 span {
+			color: #97a09c;
+			border-bottom: 4px solid #9aa29e;
+			padding-bottom: 7px;
+		}
+
+		.display img {
+			width: 30px;
+			cursor: pointer;
+		}
+
+		.display input {
+			border: 0;
+			outline: 0;
+			font-size: 24px;
+			margin-right: 15px;
+		}
+
+		.container button img {
+			width: 28px;
+			margin-right: 10px;
+		}
+
+		.container button {
+			border: 0;
+			outline: 0;
+			background: #019f55;
+			color: #fff;
+			font: 26px;
+			font-weight: 300;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			padding: 16px 26px;
+			border-radius: 5px;
+			cursor: pointer;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="container">
+		<h1><span> Generate password</span></h1>
+		<div class="display">
+			<input type="text" id="password" placeholder="password">
+			<h3 id="h"></h3>
+			<img src="images/copy.png" onclick="copy()">
+
+		</div>
+		<button onclick="gen()"><img src="images/generate.png">Generate</button>
+	</div>
+	<script>
+
+
+		function gen() {
+			var ch = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T'
+				, 'U', 'V,', 'W', 'X', 'Y', 'Z', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'g', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't'
+				, 'u', 'v', 'w', 'x', 'y', 'z', '1', '2', '3', '4', '5', '6', '7', '8', '9', '@', '#', '%', '$', '*', '!'];
+
+			var res = [];
+
+			for (let i = 0; i < 8; i++) {
+				res.push(ch[Math.floor(Math.random() * ch.length)]);
+			}
+			document.getElementById('password').value = res.join("");
+		}
+
+		function copy(){
+			
+			let x = document.getElementById("password").select();
+			document.execCommand("copy");
+		}
+
+	</script>
+</body>
+
+</html>
